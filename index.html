@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamumy</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fefefe;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f2d9e6;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .image-block {
+            text-align: center;
+        }
+        .image-block img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .trait {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #555;
+        }
+        .about {
+            text-align: center;
+            margin: 3rem 2rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .video-section {
+            text-align: center;
+            margin: 2rem;
+        }
+        video {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            video {
+                width: 100%;
+            }
+        }
+</style>
+</head>
+<body>
+
+    <!-- Background Music (MP4 Audio) -->
+    <audio id="bgMusic" autoplay loop muted>
+        <source src="audio/kamum-theme.mp4" type="audio/mp4">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.muted = false;
+        bgMusic.play().catch(() => {
+          document.body.addEventListener('click', () => {
+            bgMusic.muted = false;
+            bgMusic.play();
+          }, { once: true });
+        });
+      });
+    </script>
+
+    <header>
+        <h1>Kamumy</h1>
+    </header>
+
+    <div class="gallery fade-in">
+        <div class="image-block">
+            <img src="images/kamum1.jpg" alt="Kamum 1">
+            <div class="trait">A smile that softens mountains</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum2.jpg" alt="Kamum 2">
+            <div class="trait">Stubborn as a sunrise that won’t wait</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum3.jpg" alt="Kamum 3">
+            <div class="trait">Wrapped in dreams and silken sleep</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum4.jpg" alt="Kamum 4">
+            <div class="trait">Feet tapping to rhythms she’ll never admit</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum5.jpg" alt="Kamum 5">
+            <div class="trait">Grace with a hint of mischief</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum6.jpg" alt="Kamum 6">
+            <div class="trait">Eyes that hold a thousand untold tales</div>
+        </div>
+        <div class="image-block">
+            <img src="images/kamum7.jpg" alt="Kamum 7">
+            <div class="trait">Elegance—whispered, not shouted</div>
+        </div>
+    </div>
+
+    <div class="about fade-in">
+        Kamum is not just a name—it’s a presence, a character dancing between dreams and reality. With a smile that disarms and a stubborn heart that charms, she is poetry in motion, even when at rest.
+    </div>
+
+    <div class="video-section fade-in">
+        <video controls>
+            <source src="video/kamum-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
